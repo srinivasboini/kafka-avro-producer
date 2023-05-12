@@ -1,0 +1,30 @@
+spring:
+  kafka:
+    client-id: kafka-avro-producer-1
+    bootstrap-servers: pkc-ldvr1.asia-southeast1.gcp.confluent.cloud:9092
+    producer:
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    properties:
+      sasl:
+        jaas:
+          config: "org.apache.kafka.common.security.plain.PlainLoginModule required username='${CLUSTER_API_KEY}' password='${CLUSTER_API_SECRET}';"
+        mechanism: PLAIN
+      security:
+        protocol: SASL_SSL
+      session:
+        timeout:
+          ms: 45000
+      basic:
+        auth:
+          credentials:
+            source: USER_INFO
+          user:
+            info: ${SR_API_KEY}:${SR_API_SECRET}
+      schema:
+        registry:
+          url: https://psrc-znpo0.ap-southeast-2.aws.confluent.cloud
+
+
+server:
+  port: 0

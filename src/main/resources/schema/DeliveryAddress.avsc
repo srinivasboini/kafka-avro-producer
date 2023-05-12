@@ -1,0 +1,12 @@
+{
+  "namespace": "com.srini.avro.types",
+  "type": "record",
+  "name": "DeliveryAddress",
+  "fields": [
+    {"name": "addressLine","type": ["null","string"]},
+    {"name": "city","type": ["null","string"]},
+    {"name": "state","type": ["null","string"]},
+    {"name": "pinCode","type": ["null","string"]},
+    {"name": "contactNumber","type": ["null","string"]}
+  ]
+}
